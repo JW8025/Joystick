@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-//                        moveThumb(event.getX() - jRadius, event.getY() - jRadius);
-//                        break;
                     case MotionEvent.ACTION_MOVE:
                         moveThumb(event.getX() - jRadius, event.getY() - jRadius);
                         break;
@@ -98,8 +96,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
             private double getPower(float x) {
-                x /= jRadius;
-                return Math.min(Math.rint(Math.abs((x - tRadius) * SCALE)), SCALE) * Math.signum(x);
+                x /= jRadius - tRadius;
+                return Math.min(Math.rint(Math.abs(x) * SCALE), SCALE) * Math.signum(x);
             }
         });
     }
