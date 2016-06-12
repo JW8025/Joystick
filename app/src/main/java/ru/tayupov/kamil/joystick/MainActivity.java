@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
             private double getPower(float x) {
                 x /= jRadius;
-                return Math.min(Math.rint(Math.abs(x * SCALE)), SCALE) * Math.signum(x);
+                return Math.min(Math.rint(Math.abs((x - tRadius) * SCALE)), SCALE) * Math.signum(x);
             }
         });
     }
