@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
 
+            // Переместить стик
             private void moveThumb(float x, float y) {
                 double angle = getAngle(x, -y);
                 double radius = getRadius(x, -y);
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 thumb.setY(y);
             }
 
+            // Угол расположения стика
             private double getAngle(float x, float y) {
                 double theta;
                 x /= jRadius;
@@ -84,12 +86,14 @@ public class MainActivity extends AppCompatActivity {
                 return theta;
             }
 
+            // Радиус расположения стика
             private double getRadius(float x, float y) {
                 x /= jRadius;
                 y /= jRadius;
                 return Math.min(Math.sqrt(x * x + y * y), (jRadius - tRadius) / jRadius);
             }
 
+            // Скорость перемещения (абсолютная)
             private double getPower(float x, float y) {
                 x /= jRadius;
                 y /= jRadius;
@@ -97,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 return Math.min(Math.sqrt(x * x + y * y), radius) / radius * SCALE;
             }
 
+            // Скорость перемещения (по оси X или Y)
             private double getPower(float x) {
                 x /= jRadius - tRadius;
                 return Math.min(Math.rint(Math.abs(x) * SCALE), SCALE) * Math.signum(x);
